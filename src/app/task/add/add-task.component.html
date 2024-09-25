@@ -1,0 +1,35 @@
+<div class="flex flex-col gap-2 w-[95%] md:w-[90%] justify-center mx-auto rounded-md h-[60dvh]">
+    <form [formGroup]="profileForm" (submit)="addTask()"
+        class="col-span-12 grid grid-cols-12 overflow-y-auto gap-5 p-2 max-h-[100%]">
+        <h2
+            class="flex items-center justify-center gap-2 col-span-12 bg-green-500 text-white rounded-md p-2 w-[60%] m-auto text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path fill="#ffffff"
+                    d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zM200 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+            </svg>
+            Add new task
+        </h2>
+
+        @if (successMessage) {
+        <app-success-message class="col-span-12" [successMessage]="successMessage" />
+        }
+        @if (errorMessage) {
+        <app-error-message class="col-span-12" [errorMessage]="errorMessage" />
+        }
+
+        <textarea formControlName="title" rows="100" placeholder="Enter Title *" required
+            class="col-span-12 border w-full p-2 rounded-md"></textarea>
+        <input formControlName="date" type="date" required
+            class="col-span-12 border w-full p-2 rounded-md">
+        <button type="submit"
+            class="flex items-center justify-center gap-2 col-span-12 bg-green-600 text-white rounded-md p-2 w-[60%] m-auto text-center font-bold">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path fill="#ffffff"
+                    d="M64 80c-8.8 0-16 7.2-16 16l0 320c0 8.8 7.2 16 16 16l320 0c8.8 0 16-7.2 16-16l0-320c0-8.8-7.2-16-16-16L64 80zM0 96C0 60.7 28.7 32 64 32l320 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96zM200 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+            </svg>
+            ADD</button>
+    </form>
+
+</div>

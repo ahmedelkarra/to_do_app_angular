@@ -1,0 +1,37 @@
+<div class="flex flex-col gap-2 w-[95%] md:w-[90%] mx-auto rounded-md h-[60dvh]">
+
+    <div class="col-span-12 grid grid-cols-12 overflow-y-auto gap-3 p-2 max-h-[100%]">
+        <form class="col-span-12" [formGroup]="searchFrom">
+            <input formControlName="search" type="search" class="w-[100%] border mx-auto p-2 rounded-md"
+                placeholder="Search by title">
+        </form>
+
+        @if (tasksData().length > 0) {
+        @for (task of tasksData(); track $index) {
+        <article
+            class="col-span-12 hover:animate-background rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]">
+            <div class="rounded-[10px] bg-white p-4 !pt-20 sm:p-6">
+                <time datetime="2022-10-10" class="block text-xs text-gray-500"> {{task.date}} </time>
+
+                <h3 class="mt-0.5 text-lg font-medium text-gray-900">
+                    {{task.title}}
+                </h3>
+
+            </div>
+        </article>
+        }
+        }@else {
+        <article
+            class="col-span-12 hover:animate-background rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:bg-[length:400%_400%] hover:shadow-sm hover:[animation-duration:_4s]">
+            <div class="rounded-[10px] bg-white p-4 !pt-20 sm:p-6">
+
+                <h3 class="mt-0.5 text-lg font-medium text-gray-900">
+                    You don't have any task to show
+                </h3>
+
+            </div>
+        </article>
+        }
+    </div>
+
+</div>
